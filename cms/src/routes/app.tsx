@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router";
 import { AdminRoutes } from "./admin";
 import HomeLayout from "../pages/Manage/home";
 import Login from "../pages/Login/Login";
+import Error from "../pages/Error/error";
 export default function AppRoutes(): JSX.Element {
   return (
     <Routes>
@@ -11,6 +12,7 @@ export default function AppRoutes(): JSX.Element {
         ))}
       </Route>
       <Route path="/" element={<Login />} />
+      <Route path="*" element={<Error />} />
     </Routes>
   );
 }
