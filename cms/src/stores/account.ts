@@ -26,13 +26,7 @@ export const createANewAccount = createAsyncThunk(
 const userSlice = createSlice({
   name,
   initialState,
-  reducers: {
-    //   logout: (state) => {
-    //     state.user = null;
-    //     localStorage.removeItem("token");
-    //     console.log("Logout successfully");
-    //   },
-  },
+  reducers: {},
 
   extraReducers: (builder) => {
     builder

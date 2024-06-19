@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import * as React from "react";
 import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -18,6 +19,10 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import I from "../../components/Icons/icon";
 import { Outlet, useNavigate } from "react-router";
+import { useEffect } from "react";
+import { getCurrentUser } from "../../stores/auth";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../stores/index";
 
 const drawerWidth = 240;
 
@@ -103,6 +108,15 @@ export default function MiniDrawer() {
   };
 
   const navigate = useNavigate();
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      dispatch(getCurrentUser(token));
+    }
+  }, [dispatch, navigate]);
 
   return (
     <Box sx={{ display: "flex" }}>

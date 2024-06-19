@@ -4,9 +4,9 @@ import { Field, Form, Formik } from "formik";
 import { ILoginPayload } from "../../interfaces/auth";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../stores/index";
-import { login } from "../../stores/auth";
 import { useNavigate } from "react-router-dom";
 import { notifySuccess } from "../../utils/notification";
+import { login } from "../../stores/auth";
 const Login = () => {
   const initialValues: ILoginPayload = {
     username: "",

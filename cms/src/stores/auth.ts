@@ -1,11 +1,12 @@
+import { ILoginPayload, IUserState } from "../interfaces/auth";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import authService from "../apis/auth";
-import { ILoginPayload, IUserState } from "../interfaces/auth";
 
+export const name = "userState";
 const initialState: IUserState = {
   user: null,
+  error: null,
 };
-export const name = "userState";
 
 // Login --------------------------------------------------------
 export const login = createAsyncThunk(
@@ -17,15 +18,16 @@ export const login = createAsyncThunk(
   }
 );
 
-export const loadUser = createAsyncThunk(`${name}/loadUser`, async () => {
-  const token = localStorage.getItem("token");
-  if (token) {
+// Get current user ---------------------------------------------
+export const getCurrentUser = createAsyncThunk(
+  `${name}/getCurrentUser`,
+  async (token: string) => {
     const response = await authService.loadUser(token);
     return response.data;
   }
-});
+);
 
-const userSlice = createSlice({
+const authSlice = createSlice({
   name,
   initialState,
   reducers: {
@@ -37,16 +39,17 @@ const userSlice = createSlice({
   },
 
   extraReducers: (builder) => {
-    builder.addCase(login.fulfilled, (state) => {
-      state.user = null;
-    });
+    builder
 
-    builder.addCase(loadUser.fulfilled, (state, action) => {
-      state.user = action.payload;
-    });
+      .addCase(login.fulfilled, (state) => {
+        state.error = null;
+      })
+
+      .addCase(getCurrentUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+      });
   },
 });
 
-export const { logout } = userSlice.actions;
-
-export default userSlice.reducer;
+export default authSlice.reducer;
+export const { logout } = authSlice.actions;
