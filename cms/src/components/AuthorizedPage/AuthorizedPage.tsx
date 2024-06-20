@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-concat */
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
-import { RootState } from "../../stores/index";
+import { RootState } from "../../stores/index.store";
 import { ReactNode } from "react";
 
 interface IAuthorizedPageProps {

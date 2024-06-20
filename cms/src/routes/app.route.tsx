@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import { AdminRoutes } from "./admin";
+import { AdminRoutes } from "./admin.route";
 import HomeLayout from "../pages/Manage/home";
 import Login from "../pages/Login/Login";
 import Error from "../pages/Error/error";

@@ -1,12 +1,12 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import loginImage from "../../assets/login.jpg";
 import { Field, Form, Formik } from "formik";
-import { ILoginPayload } from "../../interfaces/auth";
+import { ILoginPayload } from "../../interfaces/auth.interface";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../stores/index";
+import { AppDispatch } from "../../stores/index.store";
 import { useNavigate } from "react-router-dom";
-import { notifySuccess } from "../../utils/notification";
-import { login } from "../../stores/auth";
+import { notifySuccess } from "../../utils/notification.util";
+import { login } from "../../stores/auth.store";
 const Login = () => {
   const initialValues: ILoginPayload = {
     username: "",

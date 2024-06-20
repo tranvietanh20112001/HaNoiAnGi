@@ -1,6 +1,6 @@
-import { ILoginPayload, IUserState } from "../interfaces/auth";
+import { ILoginPayload, IUserState } from "../interfaces/auth.interface";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import authService from "../apis/auth";
+import authService from "../apis/auth.api";
 
 export const name = "userState";
 const initialState: IUserState = {

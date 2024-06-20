@@ -1,4 +1,4 @@
-import { ILoginPayload } from "../interfaces/auth";
+import { ILoginPayload } from "../interfaces/auth.interface";
 
 import { API_URL } from "../config/config";
 import axios from "axios";

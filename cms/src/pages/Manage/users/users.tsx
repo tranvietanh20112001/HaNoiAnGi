@@ -13,9 +13,9 @@ import {
   Typography,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../stores/index";
+import { AppDispatch, RootState } from "../../../stores/index.store";
 import { useEffect } from "react";
-import { getAccounts } from "../../../stores/account";
+import { getAccounts } from "../../../stores/account.store";
 import I from "../../../components/Icons/icon";
 import React from "react";
 import AccountModal from "./modal/create";

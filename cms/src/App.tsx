@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import AppRoutes from "./routes/app";
+import AppRoutes from "./routes/app.route";
 import "./App.css";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";

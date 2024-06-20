@@ -1,4 +1,4 @@
-import { IRoute } from "@interfaces/route";
+import { IRoute } from "@interfaces/route.interface";
 import Dashboard from "../pages/Manage/dashboard/dashboard";
 import Users from "../pages/Manage/users/users";
 import Post from "../pages/Manage/posts/post";

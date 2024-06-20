@@ -4,11 +4,11 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../../../stores/index";
+import { AppDispatch } from "../../../../stores/index.store";
 import { Field, Form, Formik } from "formik";
 import { MenuItem, Select } from "@mui/material";
 import { ICreateANewAccount } from "@interfaces/account";
-import { createANewAccount } from "../../../../stores/account";
+import { createANewAccount } from "../../../../stores/account.store";
 
 const style = {
   position: "absolute" as const,

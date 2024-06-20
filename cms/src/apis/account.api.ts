@@ -1,6 +1,6 @@
 import axios from "axios";
 import { API_URL } from "../config/config";
-import { ICreateANewAccount } from "../interfaces/account";
+import { ICreateANewAccount } from "../interfaces/account.interface";
 const fetchAccounts = async () => {
   return await axios.get(`${API_URL}/user/users`);
 };

@@ -1,6 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import userService from "../apis/account";
-import { IAccountState, ICreateANewAccount } from "@interfaces/account";
+import userService from "../apis/account.api";
+import {
+  IAccountState,
+  ICreateANewAccount,
+} from "@interfaces/account.interface";
 
 const initialState: IAccountState = {
   accounts: [],
