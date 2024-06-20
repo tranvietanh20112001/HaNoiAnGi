@@ -9,4 +9,10 @@ const createANewAccount = async (data: ICreateANewAccount) => {
   return await axios.post(`${API_URL}/auth/register`, data);
 };
 
-export default { fetchAccounts, createANewAccount };
+// Delete an Account
+const deleteAnAccount = async (payload: string) => {
+  const response = await axios.delete(`${API_URL}/user/user/${payload}`);
+  return response.data;
+};
+
+export default { fetchAccounts, createANewAccount, deleteAnAccount };

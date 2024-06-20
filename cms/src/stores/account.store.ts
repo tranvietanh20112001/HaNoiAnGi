@@ -3,6 +3,7 @@ import userService from "../apis/account.api";
 import {
   IAccountState,
   ICreateANewAccount,
+  IDeleteAccountPayload,
 } from "@interfaces/account.interface";
 
 const initialState: IAccountState = {
@@ -26,6 +27,15 @@ export const createANewAccount = createAsyncThunk(
   }
 );
 
+// Delete an Account
+export const deleteAnAccount = createAsyncThunk(
+  `${name}/deleteAnAccount`,
+  async (payload: IDeleteAccountPayload) => {
+    await userService.deleteAnAccount(payload._id);
+    return payload;
+  }
+);
+
 const userSlice = createSlice({
   name,
   initialState,
@@ -38,6 +48,11 @@ const userSlice = createSlice({
       })
       .addCase(createANewAccount.fulfilled, (state, action) => {
         state.account = action.payload;
+      })
+      .addCase(deleteAnAccount.fulfilled, (state, action) => {
+        state.accounts = state.accounts.filter(
+          (account: { _id: string }) => account._id !== action.payload._id
+        );
       });
   },
 });

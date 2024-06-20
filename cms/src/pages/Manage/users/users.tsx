@@ -16,9 +16,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../stores/index.store";
 import { useEffect } from "react";
 import { getAccounts } from "../../../stores/account.store";
-import I from "../../../components/Icons/icon";
+import AccountRow from "./userRow";
 import React from "react";
 import AccountModal from "./modal/create";
+
 const users = () => {
   const dispatch: AppDispatch = useDispatch();
   const accounts = useSelector((state: RootState) => state.accounts.accounts);
@@ -66,33 +67,8 @@ const users = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {accounts.map((a) => (
-              <TableRow
-                key={a._id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {a.username}
-                </TableCell>
-                <TableCell>{a.fullName}</TableCell>
-                <TableCell>{a.email}</TableCell>
-                <TableCell>{a.role}</TableCell>
-                <TableCell>
-                  {a.status === "active" ? (
-                    <I.DotIcon color="success" />
-                  ) : (
-                    <I.DotIcon color="error" />
-                  )}
-                </TableCell>
-                <TableCell>
-                  <Button variant="contained" sx={{ mr: 1 }} color="info">
-                    <I.EyeIcon />
-                  </Button>
-                  <Button variant="contained" color="error">
-                    <I.DeleteIcon />
-                  </Button>
-                </TableCell>
-              </TableRow>
+            {accounts.map((Account) => (
+              <AccountRow key={Account._id} Account={Account} />
             ))}
           </TableBody>
         </Table>

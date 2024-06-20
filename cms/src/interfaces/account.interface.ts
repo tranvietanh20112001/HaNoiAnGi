@@ -18,3 +18,7 @@ export interface ICreateANewAccount {
   password: string;
   role: string;
 }
+
+export interface IDeleteAccountPayload {
+  _id: string;
+}

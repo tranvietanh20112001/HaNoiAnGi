@@ -7,9 +7,9 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../../../stores/index.store";
 import { Field, Form, Formik } from "formik";
 import { MenuItem, Select } from "@mui/material";
-import { ICreateANewAccount } from "@interfaces/account";
+import { ICreateANewAccount } from "../../../../interfaces/account.interface";
 import { createANewAccount } from "../../../../stores/account.store";
-
+import { notifySuccess } from "../../../../utils/notification.util";
 const style = {
   position: "absolute" as const,
   top: "50%",
@@ -44,7 +44,8 @@ export default function AccountModal({
     dispatch(createANewAccount({ ...values } as ICreateANewAccount))
       .unwrap()
       .then(() => handleClose())
-      .then(() => window.location.reload());
+      .then(() => notifySuccess("Create successfully"))
+      .finally(() => setTimeout(() => window.location.reload(), 3000));
   };
 
   return (
