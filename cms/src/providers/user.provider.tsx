@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "../stores/index.store";
 
 import { getCurrentUser } from "../stores/auth.store";
+
 import Loading from "../components/Loading/Loading";
 interface IInitialLoadProviderProps {
   children: ReactNode;

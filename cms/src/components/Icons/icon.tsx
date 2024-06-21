@@ -6,6 +6,7 @@ import DotIcon from "@mui/icons-material/FiberManualRecord";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EyeIcon from "@mui/icons-material/RemoveRedEye";
+import LogoutIcon from "@mui/icons-material/PowerSettingsNew";
 export default {
   GroupIcon,
   DashboardIcon,
@@ -15,4 +16,5 @@ export default {
   EditIcon,
   DeleteIcon,
   EyeIcon,
+  LogoutIcon,
 };
